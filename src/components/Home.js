@@ -1,11 +1,15 @@
 import React from "react";
 import Curriculo from "./curriculo.pdf";
 import Capturar from "../IMG/Capturar.PNG";
+import Capturar31 from "../IMG/Projeto3.1.PNG";
+import Capturar32 from "../IMG/Projeto3.2.PNG";
+import Capturar33 from "../IMG/Projeto3.3.PNG";
+import Capturar21 from "../IMG/Projeto2.1.PNG";
+import Capturar22 from "../IMG/Projeto2.2.PNG";
+import Capturar23 from "../IMG/Projeto2.3.PNG";
 import { useState, useEffect } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-
 import { Doughnut } from "react-chartjs-2";
-
 import {
   FaNodeJs,
   FaReact,
@@ -21,6 +25,13 @@ import {
   FaDiscord,
   FaSun,
   FaMoon,
+  FaExternalLinkAlt,
+  FaHtml5,
+  FaCss3Alt,
+  FaRegCheckCircle,
+  FaDesktop,
+  FaTabletAlt,
+  FaMobileAlt,
 } from "react-icons/fa";
 import {
   SiMysql,
@@ -31,35 +42,32 @@ import {
   SiSequelize,
   SiStyledcomponents,
   SiTypescript,
+  SiJavascript,
 } from "react-icons/si";
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function Home() {
   const [temaClaro, setTemaClaro] = useState(false);
-  const alternarTema = () => {
-    setTemaClaro(!temaClaro);
-  };
-
-  const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href = Curriculo;
-    link.download = "curriculo.pdf";
-    link.click();
-  };
-
   const [expandedCard, setExpandedCard] = useState(null);
   const [carrosselIndex, setCarrosselIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(9);
+  const [repos, setRepos] = useState([]);
+  const [repoLanguages, setRepoLanguages] = useState({});
+  const [loading, setLoading] = useState(true);
   const projetos = [
     {
       id: 1,
-      titulo: "Projeto 1",
-      descricao: "Breve descrição sobre o projeto 1. Envolve React e Node.js.",
+      titulo: "System 64",
+      descricao:
+        "Desenvolvi um sistema web completo com funcionalidades típicas de ERP, como controle de estoque, cadastro de clientes e produtos, além da geração de relatórios. A aplicação conta com uma tela de login responsiva e é construída com React.js no frontend, Node.js no backend e MySQL como banco de dados. Este projeto demonstra habilidades no desenvolvimento web, oferecendo soluções modernas e eficientes",
       imagens: [
         Capturar,
         "https://via.placeholder.com/500x300",
         "https://via.placeholder.com/600x350",
       ],
-      github: "https://github.com/seu-usuario/repo-projeto-1",
+      url: "",
+      github: "https://github.com/DevIgorRafaelDeMelo/ERP",
       tecnologias: [
         {
           nome: "React",
@@ -70,41 +78,69 @@ function Home() {
           icone: <FaNodeJs className="text-green-500 text-3xl" />,
         },
         {
-          nome: "Banco de Dados",
-          icone: <FaDatabase className="text-yellow-400 text-3xl" />,
+          nome: "MySql",
+          icone: <SiMysql className="text-yellow-400 text-3xl" />,
+        },
+        {
+          nome: "Tailwind CSS",
+          icone: <SiTailwindcss className="text-blue-500 text-3xl" />,
+        },
+        {
+          nome: "Postman",
+          icone: <SiPostman className="text-orange-500 text-3xl" />,
+        },
+        {
+          nome: "Sequelize",
+          icone: <SiSequelize className="text-red-500 text-3xl" />,
         },
       ],
+      desktop: true, // Ativa o ícone de Desktop
+      tablet: true, // Ativa o ícone de Tablet
+      mobile: false, // Ativa o ícone de Mobile
     },
     {
       id: 2,
-      titulo: "Projeto 2",
+      titulo: "Interfaçe de Restaurante",
       descricao:
-        "Breve descrição sobre o projeto 2. Um sistema completo com Bootstrap.",
-      imagens: [
-        "https://via.placeholder.com/400x200",
-        "https://via.placeholder.com/450x300",
-      ],
-      github: "https://github.com/seu-usuario/repo-projeto-2",
+        "Desenvolvi a interface de um restaurante, utilizando tecnologias de frontend, com foco em criar um design moderno, funcional e totalmente responsivo. Este projeto destaca minha capacidade de entregar interfaces adaptáveis a diferentes dispositivos, garantindo uma experiência visual agradável e eficiente para os usuários.",
+      imagens: [Capturar21, Capturar22, Capturar23],
+      url: "https://projeto-burguer.vercel.app/",
+      github: "https://github.com/DevIgorRafaelDeMelo/Projeto-Burguer",
       tecnologias: [
+        {
+          nome: "Javascript",
+          icone: <SiJavascript className="text-yellow-300 text-3xl" />,
+        },
+        {
+          nome: "Html5",
+          icone: <FaHtml5 className="text-orange-500 text-3xl" />,
+        },
+        {
+          nome: "CSS3",
+          icone: <FaCss3Alt className="text-blue-400 text-3xl" />,
+        },
         {
           nome: "Bootstrap",
           icone: <SiBootstrap className="text-purple-500 text-3xl" />,
         },
         {
-          nome: "Tailwind CSS",
-          icone: <SiTailwindcss className="text-blue-500 text-3xl" />,
+          nome: "Resposivelidade",
+          icone: <FaRegCheckCircle className="text-green-500 text-3xl" />, // Ícone adicionado
         },
       ],
+      desktop: true, // Ativa o ícone de Desktop
+      tablet: true, // Ativa o ícone de Tablet
+      mobile: true, // Ativa o ícone de Mobile
     },
     {
       id: 3,
-      titulo: "Projeto 3",
-      descricao: "Aplicativo de automação usando MySQL e Postman.",
-      imagens: [
-        "https://via.placeholder.com/300x200",
-        "https://via.placeholder.com/500x250",
-      ],
-      github: "https://github.com/seu-usuario/repo-projeto-3",
+      titulo: "Yamaha Brasil",
+      descricao:
+        "Recriei o site da Yamaha utilizando React.js e Tailwind, com o objetivo de aprimorar minhas habilidades em desenvolvimento frontend. Este projeto me ajudou a aprofundar o conhecimento em criação de interfaces responsivas e modernas, além de explorar ferramentas e práticas essenciais para o desenvolvimento web.",
+      imagens: [Capturar31, Capturar32, Capturar33],
+      url: "https://yamaha-java-script-react-js.vercel.app/",
+      github:
+        "https://github.com/DevIgorRafaelDeMelo/Yamaha-javaScript-ReactJS",
       tecnologias: [
         {
           nome: "React",
@@ -118,27 +154,20 @@ function Home() {
           nome: "Tailwind CSS",
           icone: <SiTailwindcss className="text-blue-500 text-3xl" />,
         },
+        {
+          nome: "Html5",
+          icone: <FaHtml5 className="text-orange-500 text-3xl" />,
+        },
+        {
+          nome: "CSS3",
+          icone: <FaCss3Alt className="text-blue-400 text-3xl" />,
+        },
       ],
+      desktop: true, // Ativa o ícone de Desktop
+      tablet: false, // Ativa o ícone de Tablet
+      mobile: false, // Ativa o ícone de Mobile
     },
   ];
-
-  const handleNext = () => {
-    const imagens = projetos.find(
-      (projeto) => projeto.id === expandedCard
-    ).imagens;
-    setCarrosselIndex((prev) => (prev + 1) % imagens.length);
-  };
-  const handlePrevious = () => {
-    const imagens = projetos.find(
-      (projeto) => projeto.id === expandedCard
-    ).imagens;
-    setCarrosselIndex((prev) => (prev - 1 + imagens.length) % imagens.length);
-  };
-
-  const [repos, setRepos] = useState([]);
-  const [repoLanguages, setRepoLanguages] = useState({});
-  const [loading, setLoading] = useState(true);
-
   const data = {
     labels: Object.keys(repoLanguages),
     datasets: [
@@ -163,8 +192,27 @@ function Home() {
       },
     ],
   };
-
-  const [visibleCount, setVisibleCount] = useState(9);
+  const alternarTema = () => {
+    setTemaClaro(!temaClaro);
+  };
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = Curriculo;
+    link.download = "curriculo.pdf";
+    link.click();
+  };
+  const handleNext = () => {
+    const imagens = projetos.find(
+      (projeto) => projeto.id === expandedCard
+    ).imagens;
+    setCarrosselIndex((prev) => (prev + 1) % imagens.length);
+  };
+  const handlePrevious = () => {
+    const imagens = projetos.find(
+      (projeto) => projeto.id === expandedCard
+    ).imagens;
+    setCarrosselIndex((prev) => (prev - 1 + imagens.length) % imagens.length);
+  };
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -520,10 +568,7 @@ function Home() {
               <span className="text-gray-100 font-semibold">Postman</span>, e o
               uso de{" "}
               <span className="text-gray-100 font-semibold">Sequelize</span> e{" "}
-              <span className="text-gray-100 font-semibold">
-                Styled Components
-              </span>{" "}
-              para um código bem estruturado. Além disso, minha prática com{" "}
+              para manipular dados. Além disso, minha prática com{" "}
               <span className="text-gray-100 font-semibold">GitHub</span> me
               permite colaborar e gerenciar versões de projetos com fluidez.
               <br />
@@ -570,7 +615,7 @@ function Home() {
                 {/* Imagem */}
                 <div className="mb-4">
                   <img
-                    src={projeto.imagem}
+                    src={projeto.imagens[0]}
                     alt={`Imagem do ${projeto.titulo}`}
                     className="w-full h-72 object-cover rounded-md"
                   />
@@ -591,7 +636,7 @@ function Home() {
                     temaClaro ? "text-gray-600" : "text-gray-300"
                   }`}
                 >
-                  {projeto.descricao.slice(0, 100)}...
+                  {projeto.descricao.slice(0, 200)}...
                 </p>
 
                 {/* Tecnologias Utilizadas */}
@@ -611,21 +656,18 @@ function Home() {
                   ))}
                 </div>
 
-                {/* Status ou Duração do Projeto */}
-                <p
-                  className={`text-sm text-center mb-4 ${
-                    temaClaro ? "text-gray-600" : "text-gray-400"
-                  }`}
-                >
-                  Status:{" "}
-                  <span
-                    className={`font-semibold ${
-                      temaClaro ? "text-green-700" : "text-green-400"
-                    }`}
-                  >
-                    Concluído
-                  </span>
-                </p>
+                {/* Dispositivos Responsivos */}
+                <div className="flex justify-center gap-4 mb-4">
+                  {projeto.desktop && (
+                    <FaDesktop className=" text-2xl" title="Desktop" />
+                  )}
+                  {projeto.tablet && (
+                    <FaTabletAlt className="  text-2xl" title="Tablet" />
+                  )}
+                  {projeto.mobile && (
+                    <FaMobileAlt className="  text-2xl" title="Mobile" />
+                  )}
+                </div>
 
                 {/* Botão para GitHub */}
                 <a
@@ -640,6 +682,21 @@ function Home() {
                 >
                   <FaGithub className="mr-2 text-xl" />
                   Ver no GitHub
+                </a>
+
+                {/* Botão para acessar o site do projeto */}
+                <a
+                  href={projeto.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center justify-center text-center w-50 px-4 py-2 rounded transition-colors mt-2 ${
+                    temaClaro
+                      ? "bg-green-700 text-white hover:bg-blue-800"
+                      : "bg-blue-700 text-white hover:bg-blue-400"
+                  }`}
+                >
+                  <FaExternalLinkAlt className="mr-2 text-xl" />
+                  Acessar o Site
                 </a>
               </div>
             ))}
@@ -660,10 +717,10 @@ function Home() {
                     : "bg-gray-700 text-gray-300"
                 }`}
               >
-                {/* Botão de Fechar - Fora e Próximo à Div */}
+                {/* Botão de Fechar */}
                 <button
                   onClick={() => setExpandedCard(null)}
-                  className={`absolute -top-18 -right-16 font-bold text-xl rounded-full w-12 h-12 flex items-center justify-center shadow-md ${
+                  className={`absolute top-0 -right-16 font-bold text-xl rounded-full w-12 h-12 flex items-center justify-center shadow-md ${
                     temaClaro
                       ? "text-gray-800 bg-gray-300 hover:bg-gray-400"
                       : "text-gray-700 bg-white hover:bg-gray-200"
@@ -756,22 +813,41 @@ function Home() {
                 </div>
 
                 {/* Botão para GitHub */}
-                <a
-                  href={
-                    projetos.find((projeto) => projeto.id === expandedCard)
-                      .github
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-6 inline-flex items-center justify-center px-6 py-3 rounded transition-colors ${
-                    temaClaro
-                      ? "bg-blue-700 text-white hover:bg-blue-800"
-                      : "bg-[#42035FFF] text-white hover:bg-[#9B07C0FF]"
-                  }`}
-                >
-                  <FaGithub className="mr-2 text-xl" />
-                  Ver no GitHub
-                </a>
+                <div className="space-y-12">
+                  <a
+                    href={
+                      projetos.find((projeto) => projeto.id === expandedCard)
+                        .github
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`mt-6 inline-flex items-center justify-center px-6 py-3 rounded transition-colors ${
+                      temaClaro
+                        ? "bg-blue-700 text-white hover:bg-blue-800"
+                        : "bg-[#42035FFF] text-white hover:bg-[#9B07C0FF]"
+                    }`}
+                  >
+                    <FaGithub className="mr-2 text-xl" />
+                    Ver no GitHub
+                  </a>
+                  <a className="p-4" />
+                  <a
+                    href={
+                      projetos.find((projeto) => projeto.id === expandedCard)
+                        .url
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`mt-6 inline-flex items-center justify-center px-6 py-3 rounded transition-colors ${
+                      temaClaro
+                        ? "bg-blue-700 text-white hover:bg-blue-800"
+                        : "bg-blue-600 text-white hover:bg-blue-700"
+                    }`}
+                  >
+                    <FaExternalLinkAlt className="mr-2 text-xl" />
+                    Acessar o Site
+                  </a>
+                </div>
               </div>
             </div>
           )}
@@ -988,7 +1064,7 @@ function Home() {
                       className={`px-4 py-2 rounded transition-colors ${
                         temaClaro
                           ? "bg-blue-700 text-white hover:bg-blue-800"
-                          : "bg-[#42035FFF] text-white hover:bg-[#9B07C0FF]"
+                          : "bg-black hover:bg-[#2B2B2BFF]"
                       }`}
                     >
                       Acessar Repositório
@@ -1016,7 +1092,7 @@ function Home() {
         {/* Footer com Tema Dinâmico */}
         <footer
           className={`pt-20 text-gray-300 py-8 ${
-            temaClaro ? "bg-gray-200 text-gray-900" : "bg-black bg-opacity-50 "
+            temaClaro ? "bg-gray-200 text-gray-900" : " "
           }`}
         >
           <div className="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto px-6">

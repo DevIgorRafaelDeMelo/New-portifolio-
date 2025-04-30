@@ -1,9 +1,7 @@
 import React from "react";
-import Curriculo from "./curriculo.pdf";
+import Curriculo from "../IMG/curriculo.pdf";
 import Capturar from "../IMG/Capturar.PNG";
 import Capturar31 from "../IMG/Projeto3.1.PNG";
-import Capturar32 from "../IMG/Projeto3.2.PNG";
-import Capturar33 from "../IMG/Projeto3.3.PNG";
 import Capturar21 from "../IMG/Projeto2.1.PNG";
 import Capturar22 from "../IMG/Projeto2.2.PNG";
 import Capturar23 from "../IMG/Projeto2.3.PNG";
@@ -15,7 +13,6 @@ import {
   FaReact,
   FaJsSquare,
   FaGithub,
-  FaDatabase,
   FaTimes,
   FaChevronLeft,
   FaChevronRight,
@@ -63,10 +60,8 @@ function Home() {
         "Desenvolvi um sistema web completo com funcionalidades típicas de ERP, como controle de estoque, cadastro de clientes e produtos, além da geração de relatórios. A aplicação conta com uma tela de login responsiva e é construída com React.js no frontend, Node.js no backend e MySQL como banco de dados. Este projeto demonstra habilidades no desenvolvimento web, oferecendo soluções modernas e eficientes",
       imagens: [
         Capturar,
-        "https://via.placeholder.com/500x300",
-        "https://via.placeholder.com/600x350",
       ],
-      url: "",
+      url: "https://erp1-one.vercel.app/",
       github: "https://github.com/DevIgorRafaelDeMelo/ERP",
       tecnologias: [
         {
@@ -97,9 +92,43 @@ function Home() {
       desktop: true, // Ativa o ícone de Desktop
       tablet: true, // Ativa o ícone de Tablet
       mobile: false, // Ativa o ícone de Mobile
+    }, {
+      id: 2,
+      titulo: "Delivery Gourmet",
+      descricao:
+        "Este projeto consiste na criação de uma aplicação com interface intuitiva, voltada exclusivamente para o front-end. A aplicação permitirá aos usuários registrar alimentos e suas respectivas informações, como descrição, preço e quantidade, diretamente na plataforma. Além disso, será responsável por realizar todos os cálculos necessários, como o total do pedido considerando valores individuais dos itens e possíveis taxas adicionais. Após a finalização do pedido, o sistema integrará uma funcionalidade que possibilita o envio das informações detalhadas do pedido diretamente pelo WhatsApp.",
+      imagens: [Capturar31],
+      url: "https://erp-3n7a.vercel.app/",
+      github:
+        "https://github.com/DevIgorRafaelDeMelo/Delivery-Gourmet",
+      tecnologias: [
+        {
+          nome: "React",
+          icone: <FaReact className="text-blue-400 text-3xl" />,
+        },
+        {
+          nome: "Javascript",
+          icone: <SiJavascript className="text-yellow-300 text-3xl" />,
+        },
+        {
+          nome: "Tailwind CSS",
+          icone: <SiTailwindcss className="text-blue-500 text-3xl" />,
+        },
+        {
+          nome: "Html5",
+          icone: <FaHtml5 className="text-orange-500 text-3xl" />,
+        },
+        {
+          nome: "CSS3",
+          icone: <FaCss3Alt className="text-blue-400 text-3xl" />,
+        },
+      ],
+      desktop: true, // Ativa o ícone de Desktop
+      tablet: false, // Ativa o ícone de Tablet
+      mobile: false, // Ativa o ícone de Mobile
     },
     {
-      id: 2,
+      id: 3,
       titulo: "Interfaçe de Restaurante",
       descricao:
         "Desenvolvi a interface de um restaurante, utilizando tecnologias de frontend, com foco em criar um design moderno, funcional e totalmente responsivo. Este projeto destaca minha capacidade de entregar interfaces adaptáveis a diferentes dispositivos, garantindo uma experiência visual agradável e eficiente para os usuários.",
@@ -124,7 +153,7 @@ function Home() {
           icone: <SiBootstrap className="text-purple-500 text-3xl" />,
         },
         {
-          nome: "Resposivelidade",
+          nome: "Resposividade",
           icone: <FaRegCheckCircle className="text-green-500 text-3xl" />, // Ícone adicionado
         },
       ],
@@ -132,69 +161,8 @@ function Home() {
       tablet: true, // Ativa o ícone de Tablet
       mobile: true, // Ativa o ícone de Mobile
     },
-    {
-      id: 3,
-      titulo: "Yamaha Brasil",
-      descricao:
-        "Recriei o site da Yamaha utilizando React.js e Tailwind, com o objetivo de aprimorar minhas habilidades em desenvolvimento frontend. Este projeto me ajudou a aprofundar o conhecimento em criação de interfaces responsivas e modernas, além de explorar ferramentas e práticas essenciais para o desenvolvimento web.",
-      imagens: [Capturar31, Capturar32, Capturar33],
-      url: "https://yamaha-java-script-react-js.vercel.app/",
-      github:
-        "https://github.com/DevIgorRafaelDeMelo/Yamaha-javaScript-ReactJS",
-      tecnologias: [
-        {
-          nome: "React",
-          icone: <FaReact className="text-blue-400 text-3xl" />,
-        },
-        {
-          nome: "Node.js",
-          icone: <FaNodeJs className="text-green-500 text-3xl" />,
-        },
-        {
-          nome: "Tailwind CSS",
-          icone: <SiTailwindcss className="text-blue-500 text-3xl" />,
-        },
-        {
-          nome: "Html5",
-          icone: <FaHtml5 className="text-orange-500 text-3xl" />,
-        },
-        {
-          nome: "CSS3",
-          icone: <FaCss3Alt className="text-blue-400 text-3xl" />,
-        },
-      ],
-      desktop: true, // Ativa o ícone de Desktop
-      tablet: false, // Ativa o ícone de Tablet
-      mobile: false, // Ativa o ícone de Mobile
-    },
+   
   ];
-  const data = {
-    labels: Object.keys(repoLanguages),
-    datasets: [
-      {
-        data: Object.values(repoLanguages),
-        backgroundColor: [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#4BC0C0",
-          "#9966FF",
-          "#FF9F40",
-        ],
-        hoverBackgroundColor: [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#4BC0C0",
-          "#9966FF",
-          "#FF9F40",
-        ],
-      },
-    ],
-  };
-  const alternarTema = () => {
-    setTemaClaro(!temaClaro);
-  };
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = Curriculo;
@@ -213,7 +181,6 @@ function Home() {
     ).imagens;
     setCarrosselIndex((prev) => (prev - 1 + imagens.length) % imagens.length);
   };
-
   useEffect(() => {
     const fetchRepos = async () => {
       try {

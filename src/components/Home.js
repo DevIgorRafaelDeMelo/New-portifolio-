@@ -1,6 +1,12 @@
 import React from "react";
 import Curriculo from "../IMG/curriculo.pdf";
-import Capturar from "../IMG/Capturar.PNG";
+import Capturar1 from "../IMG/Capturar1.PNG";
+import Capturar2 from "../IMG/Capturar2.PNG";
+import Capturar3 from "../IMG/Capturar3.PNG";
+import Capturar4 from "../IMG/Capturar4.PNG";
+import Capturar5 from "../IMG/Capturar5.PNG";
+import Capturar6 from "../IMG/Capturar6.PNG";
+import Capturar7 from "../IMG/Capturar7.PNG";
 import Capturar31 from "../IMG/Projeto3.1.PNG";
 import Capturar21 from "../IMG/Projeto2.1.PNG";
 import Capturar22 from "../IMG/Projeto2.2.PNG";
@@ -40,6 +46,9 @@ import {
   SiStyledcomponents,
   SiTypescript,
   SiJavascript,
+  SiAxios,
+  SiJsonwebtokens,
+  SiExpress,
 } from "react-icons/si";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -55,14 +64,19 @@ function Home() {
   const projetos = [
     {
       id: 1,
-      titulo: "System 64",
+      titulo: "Connect",
       descricao:
-        "Desenvolvi um sistema web completo com funcionalidades típicas de ERP, como controle de estoque, cadastro de clientes e produtos, além da geração de relatórios. A aplicação conta com uma tela de login responsiva e é construída com React.js no frontend, Node.js no backend e MySQL como banco de dados. Este projeto demonstra habilidades no desenvolvimento web, oferecendo soluções modernas e eficientes",
+        "Sistema Integrado de Agendamento e Gestão Financeira. O Connect é uma solução completa desenvolvida para otimizar o agendamento e o controle financeiro de empresas, com uma interface intuitiva e recursos robustos que permitem a gestão de agenda por meio do cadastro de clientes, funcionários e horários, garantindo controle preciso de compromissos e disponibilidade; organização de equipes com gerenciamento de perfis de colaboradores e seus respectivos horários de trabalho; controle financeiro com módulo dedicado ao faturamento, pagamentos e fluxo de caixa, incluindo categorização de receitas e despesas; e dashboards inteligentes que oferecem visualização clara e dinâmica dos indicadores financeiros e operacionais, facilitando a tomada de decisões estratégicas.",
       imagens: [
-        Capturar,
+        Capturar1,
+        Capturar2,
+        Capturar3,
+        Capturar4,
+        Capturar5,
+        Capturar6,
+        Capturar7,
       ],
-      url: "https://erp1-one.vercel.app/",
-      github: "https://github.com/DevIgorRafaelDeMelo/ERP",
+      github: "https://github.com/DevIgorRafaelDeMelo/Connect",
       tecnologias: [
         {
           nome: "React",
@@ -85,22 +99,30 @@ function Home() {
           icone: <SiPostman className="text-orange-500 text-3xl" />,
         },
         {
-          nome: "Sequelize",
-          icone: <SiSequelize className="text-red-500 text-3xl" />,
+          nome: "Axios",
+          icone: <SiAxios className="text-blue-500 text-3xl" />,
+        },
+        {
+          nome: "Jsonwebtokens",
+          icone: <SiJsonwebtokens className="text-black-500 text-3xl" />,
+        },
+        {
+          nome: "Express",
+          icone: <SiExpress className="text-blue-700 text-3xl" />,
         },
       ],
-      desktop: true, // Ativa o ícone de Desktop
-      tablet: true, // Ativa o ícone de Tablet
-      mobile: false, // Ativa o ícone de Mobile
-    }, {
+      desktop: true,
+      tablet: true,
+      mobile: false,
+    },
+    {
       id: 2,
       titulo: "Delivery Gourmet",
       descricao:
         "Este projeto consiste na criação de uma aplicação com interface intuitiva, voltada exclusivamente para o front-end. A aplicação permitirá aos usuários registrar alimentos e suas respectivas informações, como descrição, preço e quantidade, diretamente na plataforma. Além disso, será responsável por realizar todos os cálculos necessários, como o total do pedido considerando valores individuais dos itens e possíveis taxas adicionais. Após a finalização do pedido, o sistema integrará uma funcionalidade que possibilita o envio das informações detalhadas do pedido diretamente pelo WhatsApp.",
       imagens: [Capturar31],
       url: "https://erp-3n7a.vercel.app/",
-      github:
-        "https://github.com/DevIgorRafaelDeMelo/Delivery-Gourmet",
+      github: "https://github.com/DevIgorRafaelDeMelo/Delivery-Gourmet",
       tecnologias: [
         {
           nome: "React",
@@ -161,7 +183,6 @@ function Home() {
       tablet: true, // Ativa o ícone de Tablet
       mobile: true, // Ativa o ícone de Mobile
     },
-   
   ];
   const handleDownload = () => {
     const link = document.createElement("a");
@@ -209,54 +230,60 @@ function Home() {
 
   return (
     <>
-      {/* Botão de alternância de tema */}
       <div
-        className={
+        className={`min-h-screen px-6 py-8 transition-colors duration-500 ${
           temaClaro
-            ? "bg-gray-100 text-gray-800"
-            : "bg-gradient-to-br from-gray-900 via-black to-gray-800 text-gray-200 text-gray-100"
-        }
+            ? "bg-blue-50 text-gray-800"
+            : "bg-gradient-to-br from-black via-gray-900 to-blue-900 text-white"
+        }`}
       >
-        <header className="p-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold"></h1>
-          <div
-            className={`w-16 h-8 flex items-center rounded-full p-1 cursor-pointer transition-colors duration-300 ${
-              temaClaro ? "bg-blue-400" : "bg-gray-600"
-            }`}
-            onClick={() => setTemaClaro((prev) => !prev)}
+        <header className="flex justify-between items-center max-w-5xl mx-auto mb-12">
+          <h1
+            className={`text-4xl font-bold tracking-tight transition-colors text-blue-700  `}
           >
-            <div
-              className={`w-6 h-6 rounded-full bg-white shadow-md transform transition-transform ${
-                temaClaro ? "translate-x-8" : "translate-x-0"
-              }`}
-            >
-              {temaClaro ? (
-                <FaSun className="text-yellow-400 m-1" />
-              ) : (
-                <FaMoon className="text-gray-800 m-1" />
-              )}
-            </div>
-          </div>
+            Portfólio
+          </h1>
+
+          {/* Botão de alternância de tema */}
+          <button
+            onClick={() => setTemaClaro((prev) => !prev)}
+            className={`w-10 h-10 flex items-center justify-center rounded-full shadow-md transition duration-300 ${
+              temaClaro
+                ? "bg-white text-blue-700 border border-blue-300 hover:bg-blue-100"
+                : "bg-blue-600 text-white hover:bg-blue-500"
+            }`}
+            aria-label="Alternar tema"
+          >
+            {temaClaro ? (
+              <FaSun className="text-yellow-500 text-xl" />
+            ) : (
+              <FaMoon className="text-white text-xl" />
+            )}
+          </button>
         </header>
         {/* Seção principal */}
-        <section className="min-h-screen flex flex-col justify-center items-center text-center">
+        <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 py-12">
           <h1
-            className={`text-5xl font-extrabold mb-6 ${
-              temaClaro ? "text-blue-700" : "text-blue-500"
-            }`}
+            className={`text-5xl font-extrabold tracking-tight mb-6 text-balance text-blue-700 `}
           >
             Bem-vindo, sou Igor Rafael de Melo
           </h1>
-          <p className="text-2xl mb-8">
+
+          <p
+            className={`text-xl md:text-2xl leading-relaxed mb-8 max-w-2xl ${
+              temaClaro ? "text-gray-700" : "text-blue-200"
+            }`}
+          >
             Estudante de Análise de Sistemas |{" "}
-            <span className="font-semibold">
+            <span className="font-semibold text-blue-600 dark:text-blue-400">
               Foco em Desenvolvimento Web Fullstack
             </span>
           </p>
+
           <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
             <button
               onClick={handleDownload}
-              className={`px-8 py-3 rounded ${
+              className={`px-8 py-3 rounded-full font-medium transition duration-300 ${
                 temaClaro
                   ? "bg-blue-700 text-white hover:bg-blue-800"
                   : "bg-blue-500 text-white hover:bg-blue-600"
@@ -269,275 +296,326 @@ function Home() {
                 const element = document.getElementById("projetos");
                 element?.scrollIntoView({ behavior: "smooth" });
               }}
-              className={`px-8 py-3 rounded ${
+              className={`px-8 py-3 rounded-full font-medium transition duration-300 ${
                 temaClaro
-                  ? "bg-gray-400 text-black hover:bg-gray-500"
-                  : "bg-gray-500 text-white hover:bg-gray-600"
+                  ? "bg-gray-300 text-gray-800 hover:bg-gray-400"
+                  : "bg-gray-600 text-white hover:bg-gray-500"
               }`}
             >
               Ver Projetos
             </button>
           </div>
+
           <div className="w-full mt-20 max-w-4xl">
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8">
-              <div className="text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* React */}
+              <div
+                className={`text-center p-6 rounded-xl transition duration-300 ${
+                  temaClaro
+                    ? "bg-white shadow-md hover:shadow-lg"
+                    : "bg-gray-800 shadow-md hover:shadow-lg"
+                }`}
+              >
                 <FaReact
-                  className={
-                    temaClaro
-                      ? "text-blue-700 text-6xl mx-auto mb-2"
-                      : "text-blue-400 text-6xl mx-auto mb-2"
-                  }
+                  className={`text-6xl mx-auto mb-2 ${
+                    temaClaro ? "text-blue-700" : "text-blue-400"
+                  }`}
                 />
                 <span className="text-xl font-semibold">React</span>
-                <p className="mt-2">Criação de Interfaces Dinâmicas</p>
+                <p className="mt-2 text-sm">Criação de Interfaces Dinâmicas</p>
               </div>
-              <div className="text-center">
+
+              {/* Node.js */}
+              <div
+                className={`text-center p-6 rounded-xl transition duration-300 ${
+                  temaClaro
+                    ? "bg-white shadow-md hover:shadow-lg"
+                    : "bg-gray-800 shadow-md hover:shadow-lg"
+                }`}
+              >
                 <FaNodeJs
-                  className={
-                    temaClaro
-                      ? "text-green-700 text-6xl mx-auto mb-2"
-                      : "text-green-500 text-6xl mx-auto mb-2"
-                  }
+                  className={`text-6xl mx-auto mb-2 ${
+                    temaClaro ? "text-green-700" : "text-green-500"
+                  }`}
                 />
                 <span className="text-xl font-semibold">Node.js</span>
-                <p className="mt-2">Desenvolvimento Backend</p>
+                <p className="mt-2 text-sm">Desenvolvimento Backend</p>
               </div>
-              <div className="text-center">
+
+              {/* MySQL */}
+              <div
+                className={`text-center p-6 rounded-xl transition duration-300 ${
+                  temaClaro
+                    ? "bg-white shadow-md hover:shadow-lg"
+                    : "bg-gray-800 shadow-md hover:shadow-lg"
+                }`}
+              >
                 <SiMysql
-                  className={
-                    temaClaro
-                      ? "text-yellow-600 text-6xl mx-auto mb-2"
-                      : "text-yellow-200 text-6xl mx-auto mb-2"
-                  }
+                  className={`text-6xl mx-auto mb-2 ${
+                    temaClaro ? "text-yellow-600" : "text-yellow-200"
+                  }`}
                 />
                 <span className="text-xl font-semibold">MySQL</span>
-                <p className="mt-2">Banco de Dados Relacional</p>
+                <p className="mt-2 text-sm">Banco de Dados Relacional</p>
               </div>
             </div>
           </div>
         </section>
         {/* Ícones das habilidades secundárias no lado direito */}
         <section
-          className={`flex flex-col justify-center items-center gap-4 w-48 absolute right-8 top-1/2 transform -translate-y-1/2 ${
+          className={`w-48 h-96 overflow-hidden absolute right-8 top-1/2 transform -translate-y-1/2 rounded-xl ${
             temaClaro
-              ? "bg-gray-300 text-white py-20 rounded-xl"
+              ? "bg-gray-300 text-white py-4"
               : "bg-transparent text-gray-100"
           }`}
         >
-          <div className="text-center">
-            <FaJsSquare
-              className={
-                temaClaro
-                  ? "text-yellow-700 text-3xl mx-auto mb-1"
-                  : "text-yellow-400 text-3xl mx-auto mb-1"
-              }
-            />
-            <span
-              className={
-                temaClaro
-                  ? "text-sm text-yellow-600"
-                  : "text-sm text-yellow-300"
-              }
-            >
-              JavaScript
-            </span>
-          </div>
-
-          <div className="text-center">
-            <SiTypescript
-              className={
-                temaClaro
-                  ? "text-blue-800 text-3xl mx-auto mb-1"
-                  : "text-blue-600 text-3xl mx-auto mb-1"
-              }
-            />
-            <span
-              className={
-                temaClaro ? "text-sm text-blue-700" : "text-sm text-blue-300"
-              }
-            >
-              TypeScript
-            </span>
-          </div>
-
-          <div className="text-center">
-            <SiTailwindcss
-              className={
-                temaClaro
-                  ? "text-blue-600 text-3xl mx-auto mb-1"
-                  : "text-blue-500 text-3xl mx-auto mb-1"
-              }
-            />
-            <span
-              className={
-                temaClaro ? "text-sm text-blue-400" : "text-sm text-blue-200"
-              }
-            >
-              Tailwind CSS
-            </span>
-          </div>
-
-          <div className="text-center">
-            <SiBootstrap
-              className={
-                temaClaro
-                  ? "text-purple-600 text-3xl mx-auto mb-1"
-                  : "text-purple-500 text-3xl mx-auto mb-1"
-              }
-            />
-            <span
-              className={
-                temaClaro
-                  ? "text-sm text-purple-400"
-                  : "text-sm text-purple-200"
-              }
-            >
-              Bootstrap
-            </span>
-          </div>
-
-          <div className="text-center">
-            <SiJson
-              className={
-                temaClaro
-                  ? "text-yellow-700 text-3xl mx-auto mb-1"
-                  : "text-yellow-500 text-3xl mx-auto mb-1"
-              }
-            />
-            <span
-              className={
-                temaClaro
-                  ? "text-sm text-yellow-600"
-                  : "text-sm text-yellow-200"
-              }
-            >
-              JSON
-            </span>
-          </div>
-
-          <div className="text-center">
-            <SiPostman
-              className={
-                temaClaro
-                  ? "text-orange-600 text-3xl mx-auto mb-1"
-                  : "text-orange-400 text-3xl mx-auto mb-1"
-              }
-            />
-            <span
-              className={
-                temaClaro
-                  ? "text-sm text-orange-500"
-                  : "text-sm text-orange-200"
-              }
-            >
-              Postman
-            </span>
-          </div>
-
-          <div className="text-center">
-            <SiSequelize
-              className={
-                temaClaro
-                  ? "text-blue-800 text-3xl mx-auto mb-1"
-                  : "text-blue-700 text-3xl mx-auto mb-1"
-              }
-            />
-            <span
-              className={
-                temaClaro ? "text-sm text-blue-600" : "text-sm text-blue-200"
-              }
-            >
-              Sequelize
-            </span>
-          </div>
-
-          <div className="text-center">
-            <SiStyledcomponents
-              className={
-                temaClaro
-                  ? "text-pink-700 text-3xl mx-auto mb-1"
-                  : "text-pink-500 text-3xl mx-auto mb-1"
-              }
-            />
-            <span
-              className={
-                temaClaro ? "text-sm text-pink-600" : "text-sm text-pink-200"
-              }
-            >
-              Styled Components
-            </span>
-          </div>
-
-          <div className="text-center">
-            <FaGithub
-              className={
-                temaClaro
-                  ? "text-gray-700 text-3xl mx-auto mb-1"
-                  : "text-gray-400 text-3xl mx-auto mb-1"
-              }
-            />
-            <span
-              className={
-                temaClaro ? "text-sm text-gray-600" : "text-sm text-gray-300"
-              }
-            >
-              GitHub
-            </span>
+          <div className="flex flex-col gap-4 scroll-loop">
+            {/* 🔁 Conteúdo duplicado para loop contínuo */}
+            {[...Array(2)].map((_, i) => (
+              <React.Fragment key={i}>
+                <div className="text-center">
+                  <FaJsSquare
+                    className={
+                      temaClaro
+                        ? "text-yellow-700 text-3xl mx-auto mb-1"
+                        : "text-yellow-400 text-3xl mx-auto mb-1"
+                    }
+                  />
+                  <span
+                    className={
+                      temaClaro
+                        ? "text-sm text-yellow-600"
+                        : "text-sm text-yellow-300"
+                    }
+                  >
+                    JavaScript
+                  </span>
+                </div>
+                <div className="text-center">
+                  <SiTypescript
+                    className={
+                      temaClaro
+                        ? "text-blue-800 text-3xl mx-auto mb-1"
+                        : "text-blue-600 text-3xl mx-auto mb-1"
+                    }
+                  />
+                  <span
+                    className={
+                      temaClaro
+                        ? "text-sm text-blue-700"
+                        : "text-sm text-blue-300"
+                    }
+                  >
+                    TypeScript
+                  </span>
+                </div>
+                <div className="text-center">
+                  <SiTailwindcss
+                    className={
+                      temaClaro
+                        ? "text-blue-600 text-3xl mx-auto mb-1"
+                        : "text-blue-500 text-3xl mx-auto mb-1"
+                    }
+                  />
+                  <span
+                    className={
+                      temaClaro
+                        ? "text-sm text-blue-400"
+                        : "text-sm text-blue-200"
+                    }
+                  >
+                    Tailwind CSS
+                  </span>
+                </div>
+                <div className="text-center">
+                  <SiBootstrap
+                    className={
+                      temaClaro
+                        ? "text-purple-600 text-3xl mx-auto mb-1"
+                        : "text-purple-500 text-3xl mx-auto mb-1"
+                    }
+                  />
+                  <span
+                    className={
+                      temaClaro
+                        ? "text-sm text-purple-400"
+                        : "text-sm text-purple-200"
+                    }
+                  >
+                    Bootstrap
+                  </span>
+                </div>
+                <div className="text-center">
+                  <SiJson
+                    className={
+                      temaClaro
+                        ? "text-yellow-700 text-3xl mx-auto mb-1"
+                        : "text-yellow-500 text-3xl mx-auto mb-1"
+                    }
+                  />
+                  <span
+                    className={
+                      temaClaro
+                        ? "text-sm text-yellow-600"
+                        : "text-sm text-yellow-200"
+                    }
+                  >
+                    JSON
+                  </span>
+                </div>
+                <div className="text-center">
+                  <SiPostman
+                    className={
+                      temaClaro
+                        ? "text-orange-600 text-3xl mx-auto mb-1"
+                        : "text-orange-400 text-3xl mx-auto mb-1"
+                    }
+                  />
+                  <span
+                    className={
+                      temaClaro
+                        ? "text-sm text-orange-500"
+                        : "text-sm text-orange-200"
+                    }
+                  >
+                    Postman
+                  </span>
+                </div>
+                <div className="text-center">
+                  <SiSequelize
+                    className={
+                      temaClaro
+                        ? "text-blue-800 text-3xl mx-auto mb-1"
+                        : "text-blue-700 text-3xl mx-auto mb-1"
+                    }
+                  />
+                  <span
+                    className={
+                      temaClaro
+                        ? "text-sm text-blue-600"
+                        : "text-sm text-blue-200"
+                    }
+                  >
+                    Sequelize
+                  </span>
+                </div>
+                <div className="text-center">
+                  <SiStyledcomponents
+                    className={
+                      temaClaro
+                        ? "text-pink-700 text-3xl mx-auto mb-1"
+                        : "text-pink-500 text-3xl mx-auto mb-1"
+                    }
+                  />
+                  <span
+                    className={
+                      temaClaro
+                        ? "text-sm text-pink-600"
+                        : "text-sm text-pink-200"
+                    }
+                  >
+                    Styled Components
+                  </span>
+                </div>
+                <div className="text-center">
+                  <FaGithub
+                    className={
+                      temaClaro
+                        ? "text-gray-700 text-3xl mx-auto mb-1"
+                        : "text-gray-400 text-3xl mx-auto mb-1"
+                    }
+                  />
+                  <span
+                    className={
+                      temaClaro
+                        ? "text-sm text-gray-600"
+                        : "text-sm text-gray-300"
+                    }
+                  >
+                    GitHub
+                  </span>
+                </div>
+              </React.Fragment>
+            ))}
           </div>
         </section>
         {/* seção sobre */}
         <section
           id="sobre"
-          className={`min-h-screen flex flex-col justify-center items-center text-center py-16 px-10 ${
-            temaClaro ? "bg-white text-black" : ""
+          className={`min-h-screen flex flex-col justify-center items-center text-center px-6 py-16 transition-colors duration-500 ${
+            temaClaro ? "bg-white text-gray-800" : ""
           }`}
         >
-          <div className="max-w-5xl">
+          <div className="max-w-5xl w-full">
             <h2
-              className={`text-4xl font-bold mb-6 ${
-                temaClaro ? "text-gray-900" : "text-gray-100"
-              }`}
+              className={`text-4xl md:text-5xl font-bold mb-8 tracking-tight text-blue-700 `}
             >
               Sobre Mim
             </h2>
-            <p className="text-lg text-gray-300 px-8 py-6 bg-gray-800 rounded-lg shadow-lg leading-relaxed">
+
+            <p
+              className={`text-lg md:text-xl leading-relaxed px-6 py-8 rounded-xl shadow-lg transition duration-300 ${
+                temaClaro
+                  ? "bg-blue-50 text-gray-700"
+                  : "bg-gray-800 text-blue-200"
+              }`}
+            >
               Olá! Eu sou{" "}
-              <span className="text-gray-100 font-semibold">
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
                 Igor Rafael de Melo
               </span>
               , estudante de{" "}
-              <span className="text-gray-100 font-semibold">
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
                 Análise de Sistemas
               </span>{" "}
               com uma paixão incomparável por{" "}
-              <span className="text-gray-100 font-semibold">tecnologia</span> e
-              desenvolvimento web full stack. Transformar ideias em soluções
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
+                tecnologia
+              </span>{" "}
+              e desenvolvimento web full stack. Transformar ideias em soluções
               digitais inovadoras e impactantes é o que me move.
               <br />
               <br />
               Minha jornada como desenvolvedor é marcada por uma sólida base em
               ferramentas e tecnologias essenciais. Com{" "}
-              <span className="text-gray-100 font-semibold">React</span>, crio
-              interfaces dinâmicas e modernas que oferecem experiências
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
+                React
+              </span>
+              , crio interfaces dinâmicas e modernas que oferecem experiências
               intuitivas para os usuários. No backend, domino{" "}
-              <span className="text-gray-100 font-semibold">Node.js</span>,
-              desenvolvendo sistemas robustos e eficientes. Tenho grande
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
+                Node.js
+              </span>
+              , desenvolvendo sistemas robustos e eficientes. Tenho grande
               experiência em gestão de{" "}
-              <span className="text-gray-100 font-semibold">
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
                 bancos de dados MySQL
               </span>
               , além de estilizar projetos com precisão usando{" "}
-              <span className="text-gray-100 font-semibold">Tailwind CSS</span>{" "}
-              e <span className="text-gray-100 font-semibold">Bootstrap</span>.
-              Minhas competências incluem manipulação de{" "}
-              <span className="text-gray-100 font-semibold">JSON</span>,
-              automação de processos com{" "}
-              <span className="text-gray-100 font-semibold">Postman</span>, e o
-              uso de{" "}
-              <span className="text-gray-100 font-semibold">Sequelize</span> e{" "}
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
+                Tailwind CSS
+              </span>{" "}
+              e{" "}
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
+                Bootstrap
+              </span>
+              . Minhas competências incluem manipulação de{" "}
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
+                JSON
+              </span>
+              , automação de processos com{" "}
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
+                Postman
+              </span>
+              , e o uso de{" "}
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
+                Sequelize
+              </span>{" "}
               para manipular dados. Além disso, minha prática com{" "}
-              <span className="text-gray-100 font-semibold">GitHub</span> me
-              permite colaborar e gerenciar versões de projetos com fluidez.
+              <span className="font-semibold text-blue-600 dark:text-blue-300">
+                GitHub
+              </span>{" "}
+              me permite colaborar e gerenciar versões de projetos com fluidez.
               <br />
               <br />
               Além do desenvolvimento, atuo como suporte em um ERP, onde
@@ -557,297 +635,140 @@ function Home() {
         {/* seção projetos */}
         <section
           id="projetos"
-          className={`min-h-screen flex flex-col justify-center items-center text-center py-16 px-10 ${
-            temaClaro ? "bg-gray-100 text-gray-800" : ""
+          className={`min-h-screen flex flex-col justify-center items-center text-center px-6 py-16 transition-colors duration-500 ${
+            temaClaro ? "bg-gray-100 text-gray-800" : " "
           }`}
         >
           <h2
-            className={`text-4xl font-bold mb-8 ${
-              temaClaro ? "text-gray-800" : "text-gray-100"
-            }`}
+            className={`text-4xl md:text-5xl font-bold mb-12 tracking-tight text-blue-700  `}
           >
             Meus Projetos
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl">
             {projetos.map((projeto) => (
               <div
                 key={projeto.id}
-                className={`rounded-lg shadow-lg p-6 transform transition-transform hover:-translate-y-2 hover:shadow-xl cursor-pointer flex flex-col items-center ${
+                className={`group rounded-xl overflow-hidden shadow-md transition duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer flex flex-col ${
                   temaClaro
                     ? "bg-white text-gray-800"
-                    : "bg-gray-800 text-gray-300"
+                    : "bg-gray-900 text-gray-100"
                 }`}
                 onClick={() => setExpandedCard(projeto.id)}
               >
-                {/* Imagem */}
-                <div className="mb-4">
+                {/* Imagem com efeito de zoom */}
+                <div className="overflow-hidden aspect-video">
                   <img
                     src={projeto.imagens[0]}
                     alt={`Imagem do ${projeto.titulo}`}
-                    className="w-full h-72 object-cover rounded-md"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
 
-                {/* Título */}
-                <h3
-                  className={`text-2xl font-bold mb-4 text-center ${
-                    temaClaro ? "text-blue-700" : "text-blue-400"
-                  }`}
-                >
-                  {projeto.titulo}
-                </h3>
-
-                {/* Descrição */}
-                <p
-                  className={`mb-4 text-center ${
-                    temaClaro ? "text-gray-600" : "text-gray-300"
-                  }`}
-                >
-                  {projeto.descricao.slice(0, 200)}...
-                </p>
-
-                {/* Tecnologias Utilizadas */}
-                <div className="flex justify-center flex-wrap gap-3 mb-4">
-                  {projeto.tecnologias.map((tecnologia, index) => (
-                    <div
-                      key={index}
-                      className={`text-center flex items-center gap-2 rounded-md px-2 py-1 ${
-                        temaClaro
-                          ? "bg-gray-200 text-gray-700"
-                          : "bg-gray-700 text-gray-300"
-                      }`}
-                    >
-                      {tecnologia.icone} {/* Ícone da tecnologia */}
-                      <span className="text-sm">{tecnologia.nome}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Dispositivos Responsivos */}
-                <div className="flex justify-center gap-4 mb-4">
-                  {projeto.desktop && (
-                    <FaDesktop className=" text-2xl" title="Desktop" />
-                  )}
-                  {projeto.tablet && (
-                    <FaTabletAlt className="  text-2xl" title="Tablet" />
-                  )}
-                  {projeto.mobile && (
-                    <FaMobileAlt className="  text-2xl" title="Mobile" />
-                  )}
-                </div>
-
-                {/* Botão para GitHub */}
-                <a
-                  href={projeto.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center justify-center text-center w-50 px-4 py-2 rounded transition-colors ${
-                    temaClaro
-                      ? "bg-blue-700 text-white hover:bg-blue-800"
-                      : "bg-[#42035FFF] text-white hover:bg-[#9B07C0FF]"
-                  }`}
-                >
-                  <FaGithub className="mr-2 text-xl" />
-                  Ver no GitHub
-                </a>
-
-                {/* Botão para acessar o site do projeto */}
-                <a
-                  href={projeto.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center justify-center text-center w-50 px-4 py-2 rounded transition-colors mt-2 ${
-                    temaClaro
-                      ? "bg-green-700 text-white hover:bg-blue-800"
-                      : "bg-blue-700 text-white hover:bg-blue-400"
-                  }`}
-                >
-                  <FaExternalLinkAlt className="mr-2 text-xl" />
-                  Acessar o Site
-                </a>
-              </div>
-            ))}
-          </div>
-          {expandedCard && (
-            <div
-              className={`fixed inset-0 flex justify-center items-center p-8 ${
-                temaClaro
-                  ? "bg-gray-100 bg-opacity-75"
-                  : "bg-black bg-opacity-50"
-              }`}
-            >
-              {/* Modal com fundo semi-transparente */}
-              <div
-                className={`relative rounded-lg shadow-lg p-6 max-w-3xl w-full ${
-                  temaClaro
-                    ? "bg-white text-gray-800"
-                    : "bg-gray-700 text-gray-300"
-                }`}
-              >
-                {/* Botão de Fechar */}
-                <button
-                  onClick={() => setExpandedCard(null)}
-                  className={`absolute top-0 -right-16 font-bold text-xl rounded-full w-12 h-12 flex items-center justify-center shadow-md ${
-                    temaClaro
-                      ? "text-gray-800 bg-gray-300 hover:bg-gray-400"
-                      : "text-gray-700 bg-white hover:bg-gray-200"
-                  }`}
-                  title="Fechar"
-                >
-                  <FaTimes />
-                </button>
-
-                {/* Carrossel */}
-                <div className="mb-4 relative">
-                  {/* Botão para imagem anterior */}
-                  <button
-                    onClick={handlePrevious}
-                    className={`absolute left-0 top-1/2 transform -translate-y-1/2 px-4 py-2 rounded-full flex items-center justify-center ${
-                      temaClaro
-                        ? "bg-gray-300 text-gray-700 hover:bg-gray-400"
-                        : "bg-gray-900 text-white"
+                {/* Conteúdo */}
+                <div className="p-6 flex flex-col justify-between flex-grow">
+                  <h3
+                    className={`text-xl font-bold mb-2 ${
+                      temaClaro ? "text-blue-700" : "text-blue-400"
                     }`}
                   >
-                    <FaChevronLeft className="text-xl" />
-                  </button>
+                    {projeto.titulo}
+                  </h3>
 
-                  {/* Imagem do carrossel */}
-                  <img
-                    src={
-                      projetos.find((projeto) => projeto.id === expandedCard)
-                        .imagens[carrosselIndex]
-                    }
-                    alt="Imagem do carrossel"
-                    className="w-full h-94 object-cover rounded-md"
-                  />
+                  <p className={`text-sm mb-4 leading-relaxed`}>
+                    {projeto.descricao.slice(0, 160)}...
+                  </p>
 
-                  {/* Botão para próxima imagem */}
-                  <button
-                    onClick={handleNext}
-                    className={`absolute right-0 top-1/2 transform -translate-y-1/2 px-4 py-2 rounded-full flex items-center justify-center ${
-                      temaClaro
-                        ? "bg-gray-300 text-gray-700 hover:bg-gray-400"
-                        : "bg-gray-900 text-white"
-                    }`}
-                  >
-                    <FaChevronRight className="text-xl" />
-                  </button>
-                </div>
-
-                {/* Título e Descrição */}
-                <h3
-                  className={`text-3xl font-bold mb-4 ${
-                    temaClaro ? "text-blue-700" : "text-blue-400"
-                  }`}
-                >
-                  {
-                    projetos.find((projeto) => projeto.id === expandedCard)
-                      .titulo
-                  }
-                </h3>
-                <p
-                  className={`mb-4 ${
-                    temaClaro ? "text-gray-600" : "text-gray-300"
-                  }`}
-                >
-                  {
-                    projetos.find((projeto) => projeto.id === expandedCard)
-                      .descricao
-                  }
-                </p>
-
-                {/* Tecnologias */}
-                <div className="flex flex-wrap justify-center gap-4 mt-6">
-                  {projetos
-                    .find((projeto) => projeto.id === expandedCard)
-                    .tecnologias.map((tecnologia, index) => (
-                      <div
+                  {/* Tecnologias */}
+                  <div className="w-full flex flex-wrap justify-center gap-2 mb-4">
+                    {projeto.tecnologias.map((tecnologia, index) => (
+                      <span
                         key={index}
-                        className={`flex flex-col items-center text-center ${
-                          temaClaro ? "text-gray-700" : "text-gray-300"
+                        className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${
+                          temaClaro ? " text-gray-700" : "  text-gray-200"
                         }`}
                       >
                         {tecnologia.icone}
-                        <span
-                          className={`text-sm mt-2 ${
-                            temaClaro ? "text-gray-600" : "text-gray-300"
-                          }`}
-                        >
-                          {tecnologia.nome}
-                        </span>
-                      </div>
+                        {tecnologia.nome}
+                      </span>
                     ))}
-                </div>
+                  </div>
 
-                {/* Botão para GitHub */}
-                <div className="space-y-12">
-                  <a
-                    href={
-                      projetos.find((projeto) => projeto.id === expandedCard)
-                        .github
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`mt-6 inline-flex items-center justify-center px-6 py-3 rounded transition-colors ${
-                      temaClaro
-                        ? "bg-blue-700 text-white hover:bg-blue-800"
-                        : "bg-[#42035FFF] text-white hover:bg-[#9B07C0FF]"
-                    }`}
-                  >
-                    <FaGithub className="mr-2 text-xl" />
-                    Ver no GitHub
-                  </a>
-                  <a className="p-4" />
-                  <a
-                    href={
-                      projetos.find((projeto) => projeto.id === expandedCard)
-                        .url
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`mt-6 inline-flex items-center justify-center px-6 py-3 rounded transition-colors ${
-                      temaClaro
-                        ? "bg-blue-700 text-white hover:bg-blue-800"
-                        : "bg-blue-600 text-white hover:bg-blue-700"
-                    }`}
-                  >
-                    <FaExternalLinkAlt className="mr-2 text-xl" />
-                    Acessar o Site
-                  </a>
+                  {/* Dispositivos */}
+                  <div className="flex justify-center gap-3 text-blue-500 dark:text-blue-300 mb-4">
+                    {projeto.desktop && <FaDesktop title="Desktop" />}
+                    {projeto.tablet && <FaTabletAlt title="Tablet" />}
+                    {projeto.mobile && <FaMobileAlt title="Mobile" />}
+                  </div>
+
+                  {/* Botões */}
+                  <div className="flex flex-col gap-2 mt-auto">
+                    <a
+                      href={projeto.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center justify-center gap-2 px-4 py-2 rounded-full font-medium transition duration-300 ${
+                        temaClaro
+                          ? "bg-blue-700 text-white hover:bg-blue-800"
+                          : "bg-[#42035FFF] text-white hover:bg-[#9B07C0FF]"
+                      }`}
+                    >
+                      <FaGithub className="text-lg" />
+                      GitHub
+                    </a>
+
+                    {projeto.url && (
+                      <a
+                        href={projeto.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center justify-center gap-2 px-4 py-2 rounded-full font-medium transition duration-300 ${
+                          temaClaro
+                            ? "bg-green-700 text-white hover:bg-green-800"
+                            : "bg-blue-700 text-white hover:bg-blue-500"
+                        }`}
+                      >
+                        <FaExternalLinkAlt className="text-lg" />
+                        Site
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            ))}
+          </div>
         </section>
-        {/* Seção Github  */}
+        .{/* Seção Github  */}
         <section
           id="languages-chart"
-          className={`h-[50vh] flex flex-col justify-center items-center text-center py-8 px-10 ${
-            temaClaro ? "bg-white text-black" : ""
+          className={`min-h-[50vh] flex flex-col justify-center items-center text-center px-6 py-12 transition-colors duration-500 ${
+            temaClaro ? "  text-gray-800" : " text-gray-200"
           }`}
         >
           <h2
-            className={`text-4xl font-bold mb-4 ${
-              temaClaro ? "text-gray-900" : "text-gray-100"
+            className={`text-4xl md:text-5xl font-semibold mb-6 tracking-tight ${
+              temaClaro ? "text-gray-800" : "text-gray-100"
             }`}
           >
             Linguagens Mais Utilizadas
           </h2>
+
           {loading ? (
-            <p className={`${temaClaro ? "text-gray-700" : "text-gray-300"}`}>
+            <p className={`${temaClaro ? "text-gray-600" : "text-gray-400"}`}>
               Carregando dados...
             </p>
           ) : Object.keys(repoLanguages).length === 0 ? (
-            <p className={`${temaClaro ? "text-gray-700" : "text-gray-300"}`}>
+            <p className={`${temaClaro ? "text-gray-600" : "text-gray-400"}`}>
               Nenhuma linguagem encontrada.
             </p>
           ) : (
             <div
-              className={`${
-                temaClaro ? "bg-gray-200" : "bg-gray-800"
-              } p-6 rounded-lg shadow-lg w-full max-w-lg`}
+              className={`p-6 rounded-lg border transition duration-300 w-full max-w-lg ${
+                temaClaro
+                  ? "bg-gray-50 border-gray-200"
+                  : "bg-gray-800 border-gray-700"
+              }`}
             >
-              {/* Gráfico com Tamanho Ajustado */}
               <Doughnut
                 data={{
                   labels: Object.keys(repoLanguages),
@@ -855,20 +776,20 @@ function Home() {
                     {
                       data: Object.values(repoLanguages),
                       backgroundColor: [
-                        "#FF0033",
-                        "#007BFF",
-                        "#FFC107",
-                        "#00C49A",
-                        "#9900FF",
-                        "#FF6A00",
+                        "#0480f3ff", // fundo claro
+                        "#0026ffff", // areia quente
+                        "#00eeffff", // verde oliva
+                        "#6C7A89", // azul acinzentado
+                        "#3A3A3A", // cinza escuro
+                        "#1E1E24", // grafite profundo
                       ],
                       hoverBackgroundColor: [
-                        "#FF0022",
-                        "#0056D2",
-                        "#FFAA00",
-                        "#00B378",
-                        "#8800CC",
-                        "#FF4C00",
+                        "#EAE6E1",
+                        "#CBB89E",
+                        "#8FA77A",
+                        "#5A6A78",
+                        "#2E2E2E",
+                        "#121216",
                       ],
                     },
                   ],
@@ -881,18 +802,20 @@ function Home() {
                       position: "bottom",
                       labels: {
                         font: {
-                          size: 16,
-                          weight: "bold",
+                          size: 14,
+                          weight: "normal",
                         },
-                        boxWidth: 20,
-                        padding: 20,
-                        color: temaClaro ? "#333" : "#FFF",
+                        boxWidth: 14,
+                        padding: 10,
+                        color: temaClaro ? "#4B5563" : "#D1D5DB",
                       },
                     },
                     tooltip: {
-                      backgroundColor: "rgba(0, 0, 0, 0.7)",
+                      backgroundColor: temaClaro ? "#F9FAFB" : "#1F2937",
                       titleFont: { size: 12, weight: "bold" },
                       bodyFont: { size: 12 },
+                      titleColor: temaClaro ? "#111827" : "#F9FAFB",
+                      bodyColor: temaClaro ? "#374151" : "#E5E7EB",
                     },
                   },
                 }}
@@ -904,134 +827,93 @@ function Home() {
         {/* Seção Github commits */}
         <section
           id="github"
-          className={`min-h-screen w-full flex flex-col justify-center items-center text-center py-16 px-10 mx-auto ${
-            temaClaro ? "bg-white text-black" : ""
+          className={`min-h-screen w-full flex flex-col justify-center items-center text-center px-6 py-16 transition-colors duration-500 ${
+            temaClaro ? "bg-white text-gray-800" : " "
           }`}
         >
           <h2
-            className={`text-4xl font-bold mb-8 ${
-              temaClaro ? "text-gray-900" : "text-gray-100"
-            }`}
+            className={`text-4xl font-bold mb-10 tracking-tight text-blue-700  `}
           >
-            Outros projetos Github
+            Outros projetos GitHub
           </h2>
 
           {loading ? (
-            <p className={`${temaClaro ? "text-gray-700" : "text-gray-300"}`}>
+            <p className={`${temaClaro ? "text-gray-600" : "text-blue-200"}`}>
               Carregando repositórios...
             </p>
           ) : repos.length === 0 ? (
-            <p className={`${temaClaro ? "text-gray-700" : "text-gray-300"}`}>
+            <p className={`${temaClaro ? "text-gray-600" : "text-blue-200"}`}>
               Nenhum repositório encontrado.
             </p>
           ) : (
-            <div className="flex flex-col items-center">
-              {/* Lista de repositórios */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="flex flex-col items-center w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl">
                 {repos.slice(0, visibleCount).map((repo) => (
                   <div
                     key={repo.id}
-                    className={`rounded-lg shadow-lg p-6 text-center transform transition-transform hover:-translate-y-2 hover:shadow-xl ${
-                      temaClaro ? "bg-gray-200" : "bg-gray-800"
+                    className={`rounded-xl shadow-md p-6 transition duration-300 hover:-translate-y-2 hover:shadow-xl ${
+                      temaClaro
+                        ? "bg-gray-100 text-gray-800"
+                        : "bg-gray-800 text-blue-200"
                     }`}
                   >
-                    {/* Nome do Repositório */}
                     <h3
-                      className={`text-2xl font-bold mb-4 ${
+                      className={`text-xl font-bold mb-2 ${
                         temaClaro ? "text-blue-700" : "text-blue-400"
                       }`}
                     >
                       {repo.name}
                     </h3>
 
-                    {/* Descrição do Repositório */}
-                    <p
-                      className={`mb-4 ${
-                        temaClaro ? "text-gray-900" : "text-gray-300"
-                      }`}
-                    >
+                    <p className="text-sm mb-4 leading-relaxed">
                       {repo.description
                         ? repo.description.slice(0, 100)
                         : "Sem descrição disponível."}
                     </p>
 
-                    {/* Dados Adicionais */}
-                    <div
-                      className={`text-sm mb-4 ${
-                        temaClaro ? "text-gray-700" : "text-gray-400"
-                      }`}
-                    >
+                    <div className="text-xs mb-4 space-y-1">
                       <p>
                         Última atualização:{" "}
-                        <span className="font-bold">
+                        <span className="font-semibold">
                           {new Date(repo.updated_at).toLocaleDateString(
                             "pt-BR"
                           )}
                         </span>
                       </p>
-                      <p className="flex items-center justify-center text-center">
+                      <p className="flex items-center justify-center">
                         Linguagem:{" "}
-                        <span className="font-bold flex items-center ml-2">
+                        <span className="font-semibold flex items-center ml-2">
                           {repo.language === "JavaScript" && (
-                            <FaJsSquare
-                              className={`text-sm mr-1 ${
-                                temaClaro
-                                  ? "text-yellow-600"
-                                  : "text-yellow-400"
-                              }`}
-                            />
+                            <FaJsSquare className="text-yellow-400 text-sm mr-1" />
                           )}
                           {repo.language === "React" && (
-                            <FaReact
-                              className={`text-sm mr-1 ${
-                                temaClaro ? "text-blue-700" : "text-blue-400"
-                              }`}
-                            />
+                            <FaReact className="text-cyan-400 text-sm mr-1" />
                           )}
                           {repo.language === "Node.js" && (
-                            <FaNodeJs
-                              className={`text-sm mr-1 ${
-                                temaClaro ? "text-green-700" : "text-green-500"
-                              }`}
-                            />
+                            <FaNodeJs className="text-green-500 text-sm mr-1" />
                           )}
                           {repo.language === "Bootstrap" && (
-                            <SiBootstrap
-                              className={`text-sm mr-1 ${
-                                temaClaro
-                                  ? "text-purple-600"
-                                  : "text-purple-500"
-                              }`}
-                            />
+                            <SiBootstrap className="text-purple-400 text-sm mr-1" />
                           )}
                           {repo.language === "Tailwind CSS" && (
-                            <SiTailwindcss
-                              className={`text-sm mr-1 ${
-                                temaClaro ? "text-blue-600" : "text-blue-500"
-                              }`}
-                            />
+                            <SiTailwindcss className="text-cyan-300 text-sm mr-1" />
                           )}
                           {repo.language === "TypeScript" && (
-                            <SiTypescript
-                              className={`text-sm mr-1 ${
-                                temaClaro ? "text-blue-700" : "text-blue-400"
-                              }`}
-                            />
+                            <SiTypescript className="text-blue-400 text-sm mr-1" />
                           )}
                           {repo.language || "Não especificada"}
                         </span>
                       </p>
                     </div>
 
-                    {/* Botão para acessar o repositório */}
                     <a
                       href={repo.html_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`px-4 py-2 rounded transition-colors ${
+                      className={`inline-block mt-2 px-4 py-2 rounded-full text-sm font-medium transition duration-300 ${
                         temaClaro
                           ? "bg-blue-700 text-white hover:bg-blue-800"
-                          : "bg-black hover:bg-[#2B2B2BFF]"
+                          : "bg-cyan-400 text-black hover:bg-blue-500"
                       }`}
                     >
                       Acessar Repositório
@@ -1040,14 +922,13 @@ function Home() {
                 ))}
               </div>
 
-              {/* Botão para mostrar mais repositórios */}
               {visibleCount < repos.length && (
                 <button
                   onClick={() => setVisibleCount((prev) => prev + 3)}
-                  className={`mt-4 px-6 py-2 rounded transition-colors ${
+                  className={`mt-8 px-6 py-2 rounded-full text-sm font-medium transition duration-300 ${
                     temaClaro
                       ? "bg-blue-700 text-white hover:bg-blue-800"
-                      : "bg-blue-500 text-white hover:bg-blue-700"
+                      : "bg-cyan-400 text-black hover:bg-blue-500"
                   }`}
                 >
                   Mostrar mais repositórios
@@ -1154,6 +1035,149 @@ function Home() {
             reservados.
           </div>
         </footer>
+        {expandedCard &&
+          (() => {
+            const projetoSelecionado = projetos.find(
+              (projeto) => projeto.id === expandedCard
+            );
+
+            return (
+              <div
+                role="dialog"
+                aria-modal="true"
+                className={`fixed inset-0 flex justify-center items-center p-8 z-50 ${
+                  temaClaro
+                    ? "bg-gray-100 bg-opacity-75"
+                    : "bg-black bg-opacity-50"
+                }`}
+              >
+                <div
+                  className={`relative rounded-lg shadow-lg p-6 max-w-3xl w-full max-h-screen overflow-y-auto animate-fadeIn ${
+                    temaClaro
+                      ? "bg-white text-gray-800"
+                      : "bg-gray-700 text-gray-300"
+                  }`}
+                >
+                  {/* Botão de Fechar */}
+                  <button
+                    onClick={() => setExpandedCard(null)}
+                    className={`absolute top-4 right-4 z-20 font-bold text-xl rounded-full w-10 h-10 flex items-center justify-center shadow-md transition duration-300 ${
+                      temaClaro
+                        ? "text-gray-800 bg-gray-200 hover:bg-gray-300"
+                        : "text-white bg-gray-600 hover:bg-gray-500"
+                    }`}
+                    title="Fechar"
+                    aria-label="Fechar modal"
+                  >
+                    <FaTimes />
+                  </button>
+
+                  {/* Carrossel */}
+                  <div className="mb-6 relative overflow-hidden rounded-lg shadow-lg">
+                    <button
+                      onClick={handlePrevious}
+                      className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full shadow-md transition duration-300 ease-in-out ${
+                        temaClaro
+                          ? "bg-white text-gray-700 hover:bg-gray-200"
+                          : "bg-gray-800 text-white hover:bg-gray-700"
+                      }`}
+                      aria-label="Imagem anterior"
+                    >
+                      <FaChevronLeft className="text-2xl" />
+                    </button>
+
+                    <img
+                      src={projetoSelecionado.imagens[carrosselIndex]}
+                      alt="Imagem do carrossel"
+                      className="w-full h-96 object-cover rounded-lg transition duration-500 ease-in-out"
+                    />
+
+                    <button
+                      onClick={handleNext}
+                      className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-10 p-3 rounded-full shadow-md transition duration-300 ease-in-out ${
+                        temaClaro
+                          ? "bg-white text-gray-700 hover:bg-gray-200"
+                          : "bg-gray-800 text-white hover:bg-gray-700"
+                      }`}
+                      aria-label="Próxima imagem"
+                    >
+                      <FaChevronRight className="text-2xl" />
+                    </button>
+                  </div>
+
+                  {/* Título e Descrição */}
+                  <h3
+                    className={`text-3xl font-bold mb-4 ${
+                      temaClaro ? "text-blue-700" : "text-blue-400"
+                    }`}
+                  >
+                    {projetoSelecionado.titulo}
+                  </h3>
+                  <p
+                    className={`mb-4 ${
+                      temaClaro ? "text-gray-600" : "text-gray-300"
+                    }`}
+                  >
+                    {projetoSelecionado.descricao}
+                  </p>
+
+                  {/* Tecnologias */}
+                  <div className="flex flex-wrap justify-center gap-4 mt-6">
+                    {projetoSelecionado.tecnologias.map((tecnologia, index) => (
+                      <div
+                        key={index}
+                        className={`flex flex-col items-center text-center ${
+                          temaClaro ? "text-gray-700" : "text-gray-300"
+                        }`}
+                      >
+                        {tecnologia.icone}
+                        <span
+                          className={`text-sm mt-2 ${
+                            temaClaro ? "text-gray-600" : "text-gray-300"
+                          }`}
+                        >
+                          {tecnologia.nome}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Botões externos */}
+                  <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a
+                      href={projetoSelecionado.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center justify-center px-6 py-3 rounded transition-colors ${
+                        temaClaro
+                          ? "bg-blue-700 text-white hover:bg-blue-800"
+                          : "bg-[#42035FFF] text-white hover:bg-[#9B07C0FF]"
+                      }`}
+                    >
+                      <FaGithub className="mr-2 text-xl" />
+                      Ver no GitHub
+                    </a>
+
+                    {projetoSelecionado.url?.trim() && (
+                      <a
+                        href={projetoSelecionado.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center justify-center px-6 py-3 rounded transition-colors ${
+                          temaClaro
+                            ? "bg-blue-700 text-white hover:bg-blue-800"
+                            : "bg-blue-600 text-white hover:bg-blue-700"
+                        }`}
+                      >
+                        <FaExternalLinkAlt className="mr-2 text-xl" />
+                        Acessar o Site
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
       </div>
     </>
   );
